@@ -2,191 +2,286 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>MediaLab – Extracción y Procesamiento de Datos</title>
+  <title>Ciencia y Tecnología en la Dinastía Song</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <style>
+    :root {
+      --bg: #f4f6f8;
+      --card: #ffffff;
+      --text: #222;
+      --muted: #666;
+      --accent: #3b5cff;
+      --table-hover: #eef2ff;
+    }
+
+    body.dark {
+      --bg: #121212;
+      --card: #1e1e1e;
+      --text: #eaeaea;
+      --muted: #aaa;
+      --accent: #8fa2ff;
+      --table-hover: #2a2f4a;
+    }
+
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #f4f6f8;
       margin: 0;
-      padding: 40px;
-      color: #222;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: auto;
-      background: white;
-      padding: 40px;
-      border-radius: 10px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    }
-
-    h1 {
-      margin-top: 0;
-      font-size: 2.2em;
-    }
-
-    .meta {
-      color: #666;
-      font-size: 0.95em;
-      margin-bottom: 30px;
-    }
-
-    p {
+      font-family: "Inter", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.7;
+      scroll-behavior: smooth;
     }
 
-    strong {
-      font-weight: 600;
+    header {
+      background: var(--card);
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
 
-    h2 {
-      margin-top: 50px;
-      border-bottom: 2px solid #eee;
-      padding-bottom: 10px;
-    }
-
-    ul {
-      line-height: 1.8;
-    }
-
-    a {
-      color: #3b5cff;
+    nav a {
+      margin-right: 20px;
+      color: var(--text);
       text-decoration: none;
       font-weight: 500;
     }
 
-    a:hover {
-      text-decoration: underline;
+    nav a:hover {
+      color: var(--accent);
     }
 
-    .image-box {
-      margin: 30px 0;
-      text-align: center;
+    .toggle {
+      cursor: pointer;
+      font-size: 0.9em;
+      background: none;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      padding: 6px 12px;
+      border-radius: 20px;
     }
 
-    .image-box img {
-      max-width: 100%;
-      border-radius: 8px;
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 50px 40px;
     }
 
+    h1 {
+      font-size: 2.4em;
+      margin-top: 0;
+    }
+
+    h2 {
+      margin-top: 60px;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 10px;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 0.95em;
+      margin-bottom: 30px;
+    }
+
+    /* Cards */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    }
+
+    .card h3 {
+      margin: 0;
+      font-size: 0.9em;
+      color: var(--muted);
+    }
+
+    .card p {
+      font-size: 1.8em;
+      margin: 10px 0 0;
+      font-weight: 700;
+    }
+
+    /* Tabla */
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 20px;
+      margin-top: 25px;
+      background: var(--card);
+      border-radius: 8px;
+      overflow: hidden;
     }
 
     th, td {
-      padding: 12px;
+      padding: 14px;
       border-bottom: 1px solid #ddd;
       text-align: left;
     }
 
     th {
-      background: #f0f2f5;
+      background: var(--bg);
+    }
+
+    tr:hover {
+      background: var(--table-hover);
+    }
+
+    /* Hallazgos */
+    ul {
+      margin-top: 25px;
+    }
+
+    li {
+      margin-bottom: 12px;
+    }
+
+    /* Descargas */
+    .downloads a {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .downloads a:hover {
+      text-decoration: underline;
+    }
+
+    /* Volver arriba */
+    .top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      font-size: 18px;
+      cursor: pointer;
     }
 
     footer {
-      margin-top: 60px;
-      font-size: 0.85em;
-      color: #777;
       text-align: center;
+      padding: 40px;
+      color: var(--muted);
+      font-size: 0.85em;
     }
   </style>
 </head>
 
-<body>
-  <div class="container">
+<body id="inicio">
 
-    <h1>El Renacimiento Tecnológico de los Song</h1>
+<header>
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#datos">Datos</a>
+    <a href="#hallazgos">Hallazgos</a>
+  </nav>
+  <button class="toggle" onclick="document.body.classList.toggle('dark')">
+    🌙 / ☀️
+  </button>
+</header>
 
-    <div class="meta">
-      Autor: Milagros Portocarrero Vigo<br>
-      Fecha: 2026
-    </div>
+<div class="container">
 
-    <p>
-      El objetivo de este proyecto fue analizar cómo se presentan y organizan los contenidos
-      históricos relacionados con la innovación tecnológica durante la dinastía Song, a partir
-      de datos extraídos y procesados mediante técnicas de web scraping y análisis de texto.
-    </p>
+  <h1>Ciencia y Tecnología en la Dinastía Song</h1>
 
-    <!-- ESPACIO PARA IMAGEN -->
-    <div class="image-box">
-      <img src="img/imagen.jpg" alt="Innovaciones tecnológicas en la dinastía Song">
-      <p><em>Figura: Representación de avances tecnológicos durante la dinastía Song.</em></p>
-    </div>
-
-    <p>
-      <strong>Innovación en la Ingeniería y Astronomía:</strong>
-      Bajo el liderazgo de figuras como Su Song, se perfeccionaron herramientas mecánicas complejas,
-      incluyendo relojes hidráulicos, esferas armilares y el icónico “carro que apunta hacia el sur”,
-      basándose en el legado de inventores pioneros como Zhang Heng.
-    </p>
-
-    <p>
-      <strong>Revolución en la Comunicación y Economía:</strong>
-      La evolución de la xilografía hacia los tipos móviles democratizó la educación confucianista,
-      mientras que la introducción del papel moneda y el uso de molinos de viento impulsaron una
-      expansión comercial sin precedentes.
-    </p>
-
-    <p>
-      <strong>Poderío Militar y la Pólvora:</strong>
-      El desarrollo avanzado de armas de fuego y cañones basados en pólvora fue clave para la defensa
-      del imperio frente a dinastías del norte antes del ascenso mongol.
-    </p>
-
-    <p>
-      <strong>Sofisticación Mecánica en la Vida Civil:</strong>
-      Se desarrollaron odómetros para medir distancias y dispositivos arquitectónicos como
-      bibliotecas giratorias, integrando ingeniería civil y prácticas culturales.
-    </p>
-
-    <p>
-      <strong>Mérito y Gestión Estatal:</strong>
-      El sistema de exámenes imperiales permitió reclutar talento técnico para el Estado,
-      asegurando que el conocimiento científico se orientara al desarrollo nacional.
-    </p>
-
-    <h2>Descarga de datos</h2>
-    <ul>
-      <li><a href="../data/raw.csv" download>Descargar raw.csv</a></li>
-      <li><a href="../data/clean.csv" download>Descargar clean.csv</a></li>
-      <li><a href="../data/summary.csv" download>Descargar summary.csv</a></li>
-    </ul>
-
-    <h2>Resumen de datos (summary.csv)</h2>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Métrica</th>
-          <th>Valor</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Total de registros</td>
-          <td>30</td>
-        </tr>
-        <tr>
-          <td>Longitud promedio del título</td>
-          <td>—</td>
-        </tr>
-        <tr>
-          <td>Palabra más frecuente</td>
-          <td>—</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <footer>
-      Proyecto académico – MediaLab | Extracción y Procesamiento de Datos
-    </footer>
-
+  <div class="meta">
+    Autor: Milagros Portocarrero Vigo<br>
+    Curso: Extracción y Procesamiento de Datos
   </div>
+
+  <p>
+    Este proyecto analiza contenidos históricos relacionados con los avances científicos y
+    tecnológicos de la dinastía Song, a partir de datos extraídos mediante web scraping y
+    procesados con Python para identificar patrones, temas recurrentes y énfasis narrativos.
+  </p>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Total de ítems</h3>
+      <p>30</p>
+    </div>
+    <div class="card">
+      <h3>Top palabra</h3>
+      <p>Tecnología</p>
+    </div>
+    <div class="card">
+      <h3>Longitud promedio</h3>
+      <p>—</p>
+    </div>
+  </div>
+
+  <h2 id="datos">Descarga de datos</h2>
+
+  <div class="downloads">
+    <a href="../data/raw.csv" download>⬇ raw.csv</a>
+    <a href="../data/clean.csv" download>⬇ clean.csv</a>
+    <a href="../data/summary.csv" download>⬇ summary.csv</a>
+  </div>
+
+  <h2>Resumen (summary.csv)</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Métrica</th>
+        <th>Valor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Total de registros</td>
+        <td>30</td>
+      </tr>
+      <tr>
+        <td>Palabra más frecuente</td>
+        <td>Tecnología</td>
+      </tr>
+      <tr>
+        <td>Promedio de longitud</td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 id="hallazgos">Hallazgos</h2>
+
+  <ul>
+    <li>La innovación tecnológica aparece como eje central del desarrollo estatal y cultural.</li>
+    <li>Existe una fuerte relación entre ciencia aplicada y administración pública.</li>
+    <li>Los avances técnicos tuvieron impacto tanto militar como civil.</li>
+  </ul>
+
+</div>
+
+<button class="top" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑</button>
+
+<footer>
+  Proyecto académico – MediaLab · GitHub Pages
+</footer>
+
 </body>
 </html>
