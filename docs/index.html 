@@ -2,221 +2,139 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Ciencia y Tecnología en la Dinastía Song</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ciencia y tecnología en la dinastía Song</title>
 
-  <!-- Google Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #f4f6f8;
-      --card: #ffffff;
+      --bg: #ffffff;
       --text: #222;
-      --muted: #666;
-      --accent: #3b5cff;
-      --table-hover: #eef2ff;
+      --accent: #2a7ae2;
+      --card: #f3f4f6;
     }
 
     body.dark {
       --bg: #121212;
+      --text: #e5e5e5;
       --card: #1e1e1e;
-      --text: #eaeaea;
-      --muted: #aaa;
-      --accent: #8fa2ff;
-      --table-hover: #2a2f4a;
     }
 
     body {
       margin: 0;
-      font-family: "Inter", system-ui, sans-serif;
+      font-family: 'Inter', sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.7;
-      scroll-behavior: smooth;
+      line-height: 1.6;
     }
 
     header {
-      background: var(--card);
-      padding: 20px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      background: var(--accent);
+      color: white;
+      padding: 1.5rem;
       position: sticky;
       top: 0;
-      z-index: 10;
     }
 
     nav a {
-      margin-right: 20px;
-      color: var(--text);
+      color: white;
+      margin-right: 1rem;
       text-decoration: none;
-      font-weight: 500;
+      font-weight: 600;
     }
 
-    nav a:hover {
-      color: var(--accent);
-    }
-
-    .toggle {
+    nav button {
+      float: right;
+      padding: 0.4rem 0.7rem;
       cursor: pointer;
-      font-size: 0.9em;
-      background: none;
-      border: 1px solid var(--accent);
-      color: var(--accent);
-      padding: 6px 12px;
-      border-radius: 20px;
     }
 
-    .container {
+    section {
+      padding: 2rem;
       max-width: 1000px;
       margin: auto;
-      padding: 50px 40px;
     }
 
-    h1 {
-      font-size: 2.4em;
-      margin-top: 0;
+    h1, h2 {
+      color: var(--accent);
     }
 
-    h2 {
-      margin-top: 60px;
-      border-bottom: 2px solid var(--accent);
-      padding-bottom: 10px;
-    }
-
-    .meta {
-      color: var(--muted);
-      font-size: 0.95em;
-      margin-bottom: 30px;
-    }
-
-    /* Cards */
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      margin-top: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
     }
 
     .card {
       background: var(--card);
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
     }
 
-    .card h3 {
-      margin: 0;
-      font-size: 0.9em;
-      color: var(--muted);
-    }
-
-    .card p {
-      font-size: 1.8em;
-      margin: 10px 0 0;
-      font-weight: 700;
-    }
-
-    /* Tabla */
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 25px;
-      background: var(--card);
-      border-radius: 8px;
-      overflow: hidden;
+      margin-top: 1rem;
     }
 
     th, td {
-      padding: 14px;
-      border-bottom: 1px solid #ddd;
+      padding: 0.7rem;
+      border-bottom: 1px solid #ccc;
       text-align: left;
     }
 
-    th {
-      background: var(--bg);
-    }
-
     tr:hover {
-      background: var(--table-hover);
+      background-color: rgba(42,122,226,0.1);
     }
 
-    /* Hallazgos */
     ul {
-      margin-top: 25px;
+      margin-left: 1.2rem;
     }
 
-    li {
-      margin-bottom: 12px;
-    }
-
-    /* Descargas */
-    .downloads a {
-      display: block;
-      margin-bottom: 10px;
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .downloads a:hover {
-      text-decoration: underline;
-    }
-
-    /* Volver arriba */
     .top {
       position: fixed;
-      bottom: 30px;
-      right: 30px;
+      bottom: 20px;
+      right: 20px;
       background: var(--accent);
       color: white;
       border: none;
-      border-radius: 50%;
-      width: 45px;
-      height: 45px;
-      font-size: 18px;
+      padding: 0.7rem 1rem;
+      border-radius: 50px;
       cursor: pointer;
     }
 
     footer {
       text-align: center;
-      padding: 40px;
-      color: var(--muted);
-      font-size: 0.85em;
+      padding: 1rem;
+      font-size: 0.9rem;
+      opacity: 0.8;
     }
   </style>
 </head>
 
-<body id="inicio">
+<body>
 
 <header>
   <nav>
     <a href="#inicio">Inicio</a>
     <a href="#datos">Datos</a>
     <a href="#hallazgos">Hallazgos</a>
+    <button onclick="toggleMode()">🌙 / ☀️</button>
   </nav>
-  <button class="toggle" onclick="document.body.classList.toggle('dark')">
-    🌙 / ☀️
-  </button>
 </header>
 
-<div class="container">
-
-  <h1>Ciencia y Tecnología en la Dinastía Song</h1>
-
-  <div class="meta">
-    Autor: Milagros Portocarrero Vigo<br>
-    Curso: Extracción y Procesamiento de Datos
-  </div>
+<section id="inicio">
+  <h1>Ciencia y tecnología en la dinastía Song</h1>
+  <p><strong>Autora:</strong> Milagros Portocarrero Vigo<br>
+     <strong>Fecha:</strong> 2026</p>
 
   <p>
-    Este proyecto analiza contenidos históricos relacionados con los avances científicos y
-    tecnológicos de la dinastía Song, a partir de datos extraídos mediante web scraping y
-    procesados con Python para identificar patrones, temas recurrentes y énfasis narrativos.
+    Este proyecto buscó responder cómo los avances científicos y tecnológicos
+    durante la dinastía Song impulsaron transformaciones profundas en la ingeniería,
+    la economía, la gestión estatal y la vida cotidiana en China.
   </p>
 
   <div class="cards">
@@ -229,21 +147,21 @@
       <p>Tecnología</p>
     </div>
     <div class="card">
-      <h3>Longitud promedio</h3>
-      <p>—</p>
+      <h3>Fuente</h3>
+      <p>Wikipedia</p>
     </div>
   </div>
+</section>
 
-  <h2 id="datos">Descarga de datos</h2>
+<section id="datos">
+  <h2>Descarga de datos</h2>
+  <ul>
+    <li><a href="raw.csv" target="_blank">raw.csv</a></li>
+    <li><a href="clean.csv" target="_blank">clean.csv</a></li>
+    <li><a href="summary.csv" target="_blank">summary.csv</a></li>
+  </ul>
 
-  <div class="downloads">
-    <a href="../data/raw.csv" download>⬇ raw.csv</a>
-    <a href="../data/clean.csv" download>⬇ clean.csv</a>
-    <a href="../data/summary.csv" download>⬇ summary.csv</a>
-  </div>
-
-  <h2>Resumen (summary.csv)</h2>
-
+  <h3>Resumen de datos</h3>
   <table>
     <thead>
       <tr>
@@ -262,26 +180,34 @@
       </tr>
       <tr>
         <td>Promedio de longitud</td>
-        <td>—</td>
+        <td>120 caracteres</td>
       </tr>
     </tbody>
   </table>
+</section>
 
-  <h2 id="hallazgos">Hallazgos</h2>
-
+<section id="hallazgos">
+  <h2>Hallazgos principales</h2>
   <ul>
-    <li>La innovación tecnológica aparece como eje central del desarrollo estatal y cultural.</li>
-    <li>Existe una fuerte relación entre ciencia aplicada y administración pública.</li>
-    <li>Los avances técnicos tuvieron impacto tanto militar como civil.</li>
+    <li>La dinastía Song consolidó una relación directa entre ciencia, Estado y desarrollo económico.</li>
+    <li>La innovación tecnológica facilitó la expansión comercial y la circulación del conocimiento.</li>
+    <li>El mérito académico fue clave para sostener el avance científico a largo plazo.</li>
   </ul>
+</section>
 
-</div>
-
-<button class="top" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑</button>
+<button class="top" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+  ↑
+</button>
 
 <footer>
-  Proyecto académico – MediaLab · GitHub Pages
+  Proyecto académico – GitHub Pages
 </footer>
+
+<script>
+  function toggleMode() {
+    document.body.classList.toggle("dark");
+  }
+</script>
 
 </body>
 </html>
